@@ -11,11 +11,12 @@ import { createStore } from "solid-js/store"
  * @property {String} name - The character's full name
  * @property {String} nickname - The character's nickname
  * @property {String} bio - The character's biography
+ * @property {Boolean} locked - Wether Character is locked or not
  */
 
 /**
  * The base of all Character Classes
- * @version 1
+ * @version 1.01
  */
 export default class Character{
     //stores the state of the object
@@ -32,6 +33,7 @@ export default class Character{
             nickname:args.nickname,
             version:1,
             bio:args.bio,
+            locked:args.locked
         })
     }
 
@@ -41,7 +43,7 @@ export default class Character{
      * @returns {img}
      */
     get img(){
-        return this.#characterState.img
+        return this.#characterState.img;
     }
 
     /**
@@ -49,14 +51,14 @@ export default class Character{
      * @returns {String}
      */
     get name(){
-        return this.#characterState.name
+        return this.#characterState.name;
     }
     /**
      * Returns Characters Nickname
      * @returns {String}
      */
     get nickname(){
-        return this.#characterState.nickname
+        return this.#characterState.nickname;
     }
 
     /**
@@ -64,7 +66,7 @@ export default class Character{
      * @returns {Number}
      */
     get version(){
-        return this.#characterState.version
+        return this.#characterState.version;
     }
 
         /**
@@ -72,11 +74,30 @@ export default class Character{
      * @returns {String}
      */
     get bio(){
-        return this.#characterState.bio
+        return this.#characterState.bio;
+    }
+
+    get locked(){
+        return this.#characterState.locked;
     }
 
     //setters
     set img(newImg){
         this.#setCharacterState("img",newImg);
+    }
+
+    //methods
+    /**
+     * Unlocks the Character
+     */
+    unlock(){
+        this.#setCharacterState("locked", false);
+    }
+
+    /**
+     * Locks the Character
+     */
+    lock(){
+        this.#setCharacterState("locked",true);
     }
 }
