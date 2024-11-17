@@ -1,0 +1,11 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore production build folder
+dist/
+
+# Ignore compiled CSS files, but not pre-written ones
+src/styles/compiledCSS/*.css
+
+# Ignore sourcemap files
+*.css.map
