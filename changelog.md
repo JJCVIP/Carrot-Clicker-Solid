@@ -1,6 +1,17 @@
 ## Changelog
 
 ---------------
+**Version alpha 0.03**\
+*Started to Create Classes*\
+11/18/2024
+-JJCVIP
+- Tweaked Character Class (Added Documentation and console.warns on locking and unlocking methods)
+- Further fleshed out Farmer class
+- Created Blacksmith Class
+----------------
+
+
+---------------
 **Version alpha 0.02**\
 *Started to Create Classes*\
 11/17/2024
