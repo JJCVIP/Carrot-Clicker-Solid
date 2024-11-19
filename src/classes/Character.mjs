@@ -16,7 +16,7 @@ import { createStore } from "solid-js/store"
 
 /**
  * The base of all Character Classes
- * @version 1.01
+ * @version 1.02
  */
 export default class Character{
     //stores the state of the object
@@ -69,7 +69,7 @@ export default class Character{
         return this.#characterState.version;
     }
 
-        /**
+    /**
      * Returns Characters biography
      * @returns {String}
      */
@@ -77,11 +77,19 @@ export default class Character{
         return this.#characterState.bio;
     }
 
+    /** 
+     * Returns Wether the character is locked
+     * @returns {Boolean}
+     */
     get locked(){
         return this.#characterState.locked;
     }
 
     //setters
+    /***
+     * Sets the characters image
+     * @param {Image}
+     */
     set img(newImg){
         this.#setCharacterState("img",newImg);
     }
@@ -91,6 +99,9 @@ export default class Character{
      * Unlocks the Character
      */
     unlock(){
+        if(this.locked === false){
+            console.warn(this.name+" is already unlocked");
+        }
         this.#setCharacterState("locked", false);
     }
 
@@ -98,6 +109,9 @@ export default class Character{
      * Locks the Character
      */
     lock(){
+        if(this.locked === true){
+            console.warn(this.name+" is already locked");
+        }
         this.#setCharacterState("locked",true);
     }
 }
