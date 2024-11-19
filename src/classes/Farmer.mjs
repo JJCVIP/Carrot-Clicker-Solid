@@ -22,7 +22,7 @@ export default class Farmer extends Character{
                 tools: args.tools,
                 version: 0.4,
                 PriceArray : null
-            })
+            });
 
             //create the farmers price array
             this.#setFarmerState("PriceArray", new PriceArray(this))

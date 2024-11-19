@@ -34,7 +34,7 @@ export default class Character{
             version:1,
             bio:args.bio,
             locked:args.locked
-        })
+        });
     }
 
     //getters
