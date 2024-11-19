@@ -28,7 +28,7 @@ function App() {
   }, 1000);
   return (
     <div>
-     <p className={styles.test}>test {Boomer_Bill.levelUpPrice(a())}</p>
+     <p className={styles.test}>test {Boomer_Bill.getLevelUpPrice(a())}</p>
      
     </div>
   );

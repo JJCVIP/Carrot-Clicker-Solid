@@ -4,7 +4,7 @@ import PriceArray from "./PriceArray.mjs";
 
 /**
  * The base of all Farmer Classes
- * @version 0.3
+ * @version 0.4
  */
 export default class Farmer extends Character{
     #farmerState;
@@ -20,16 +20,18 @@ export default class Farmer extends Character{
                 basePrice: args.basePrice,
                 scaling: args.scaling,
                 tools: args.tools,
-                version: 1,
+                version: 0.4,
                 PriceArray : null
             })
-            console.time("price");
-            this.#setFarmerState("PriceArray", new PriceArray(this))
-            console.timeEnd("price");
 
+            //create the farmers price array
+            this.#setFarmerState("PriceArray", new PriceArray(this))
         }
 
     //getters
+    get lvl(){
+        return this.#farmerState.lvl;
+    }
     get scaling(){
         return this.#farmerState.scaling; 
     }
@@ -37,14 +39,32 @@ export default class Farmer extends Character{
     get lvlUpPrice(){
         return this.#farmerState.lvlUpPrice;
     }
+
+    get tools(){
+        return this.#farmerState.tools;
+    }
+
     //setters
- 
+    set lvl(newLvl){
+        this.#setFarmerState("lvl",newLvl);
+    }
+
+    set tools(newTools){
+        this.#setFarmerState("tools",newTools);
+    }
+
+    set basePrice(newBasePrice){
+        this.#setFarmerState("basePrice", newBasePrice)
+    }
+
     //Methods
     /**
      * Queries the LevelUpPrice
-     * @param {*} ammount 
+     * @param {Number} ammount 
      */
-    levelUpPrice(amount){
+    getLevelUpPrice(amount){
         return Number(this.#farmerState.PriceArray.queryPrice(amount));
     }
+
+
 }
